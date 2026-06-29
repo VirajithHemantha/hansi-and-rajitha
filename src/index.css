@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-script: "Great Vibes", cursive;
+  --font-sans: "Inter", sans-serif;
+  --font-cinzel: "Cinzel", serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-playball: "Playball", cursive;
+
+  --color-sage: #C0C0C0;
+  --color-paper: #FFFFFF;
+
+  --color-theme-50: #fff1f2; /* Soft Pastel Pink */
+  --color-theme-100: #ffe4e8; /* Light Pastel Pink */
+  --color-theme-200: #ffc7b5; /* Peach */
+  --color-theme-300: #ffa58a; /* Salmon Pink */
+  --color-theme-400: #ff8562; /* Vibrant Salmon Pink */
+  --color-theme-500: #d4af37; /* Metallic Gold */
+  --color-theme-600: #a586c5; /* Soft Purple */
+  --color-theme-700: #805b9b; /* Elegant Purple */
+  --color-theme-800: #5e3b75; /* Dark Purple */
+  --color-theme-900: #3f2252; /* Deep Royal Purple */
+}
+
+.silver-border {
+  border: 2px solid #D4AF37;
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.4),
+    inset 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.silver-text {
+  background: linear-gradient(135deg, #D4AF37 0%, #FFDF00 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+:root {
+  background-color: var(--color-paper);
+  color: #2D2D2D;
+  font-family: var(--font-montserrat);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+.script {
+  font-family: var(--font-script);
+}
+
+.clip-path-envelope {
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+.clip-path-envelope-bottom {
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+/* 3D Transform Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.mandala-frame {
+  --mandala-accent-opacity: 0.38;
+  --mandala-soft-opacity: 0.16;
+}
+
+.mandala-corner {
+  position: absolute;
+  width: clamp(300px, 38vw, 620px);
+  aspect-ratio: 1 / 1;
+  opacity: var(--mandala-accent-opacity);
+}
+
+.mandala-corner.is-soft {
+  opacity: var(--mandala-soft-opacity);
+}
+
+.mandala-art {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mandala-corner-tr {
+  top: -11%;
+  right: -11%;
+  transform: rotate(12deg);
+}
+
+.mandala-corner-bl {
+  bottom: -13%;
+  left: -12%;
+  transform: rotate(-12deg);
+}
+
+.mandala-corner-tl {
+  top: 19%;
+  left: -22%;
+  transform: rotate(-8deg);
+}
+
+.mandala-corner-br {
+  right: -24%;
+  bottom: 18%;
+  transform: rotate(6deg);
+}
+
+.website-shell {
+  background:
+    radial-gradient(circle at 18% 14%, rgba(192, 192, 192, 0.19), transparent 38%),
+    radial-gradient(circle at 84% 72%, rgba(156, 163, 175, 0.16), transparent 42%);
+}
+
+.section-floral-overlay {
+  opacity: 0.6;
+}
+
+.section-floral-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(192, 192, 192, 0.16), transparent 35%),
+    radial-gradient(circle at 78% 75%, rgba(156, 163, 175, 0.14), transparent 38%);
+}
+
+.paper-grain {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.85) 0.5px, transparent 0.8px),
+    radial-gradient(circle at 78% 42%, rgba(192, 192, 192, 0.2) 0.6px, transparent 0.9px),
+    radial-gradient(circle at 42% 76%, rgba(156, 163, 175, 0.1) 0.5px, transparent 0.8px);
+  background-size: 9px 9px, 15px 15px, 18px 18px;
+}
+
+.paper-grain-strong {
+  background-image:
+    radial-gradient(circle at 22% 24%, rgba(255, 255, 255, 0.88) 0.55px, transparent 0.85px),
+    radial-gradient(circle at 70% 64%, rgba(192, 192, 192, 0.22) 0.65px, transparent 0.95px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(249, 250, 251, 0.8));
+  background-size: 8px 8px, 14px 14px, 100% 100%;
+}
+
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
+
+.smooth-mobile-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
+}
+
+@supports not (content-visibility: auto) {
+  .cv-auto {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
+}
+
+/* iOS Safari can skip painting below-fold blocks with content-visibility. */
+@supports (-webkit-touch-callout: none) {
+  .cv-auto {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .mandala-frame {
+    --mandala-accent-opacity: 0.35;
+    --mandala-soft-opacity: 0.14;
+  }
+
+  .mandala-mobile-hidden {
+    display: none;
+  }
+
+  .mandala-corner {
+    width: clamp(260px, 74vw, 430px);
+  }
+
+  .mandala-corner-tr {
+    top: -10%;
+    right: -26%;
+  }
+
+  .mandala-corner-bl {
+    bottom: -13%;
+    left: -28%;
+  }
+
+  .mandala-corner-tl {
+    top: 18%;
+    left: -41%;
+  }
+
+  .mandala-corner-br {
+    right: -40%;
+    bottom: 16%;
+  }
+
+  .section-floral-overlay {
+    opacity: 0.6;
+  }
+
+  .cv-auto {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage);
+  opacity: 0.3;
+  border-radius: 10px;
+}
