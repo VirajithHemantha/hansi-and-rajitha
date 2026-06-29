@@ -419,31 +419,38 @@ export default function WeddingInvitation() {
             {/* Soft colorful overlay */}
             <div className={`absolute inset-0 bg-gradient-to-b from-rose-50/10 via-transparent to-sky-50/20 transition-opacity duration-1000 ${isVideoPlaying ? 'opacity-0' : 'opacity-100'}`} />
 
-            {/* Interaction Button with colorful glow */}
+            {/* Initial Black Screen with Centered Button */}
             <AnimatePresence>
               {!isVideoPlaying && (
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ delay: 1, duration: 1 }}
-                  className="relative z-[101] mt-auto mb-20 md:mb-24"
+                  initial={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="absolute inset-0 z-[110] bg-cover bg-center flex flex-col items-center justify-center"
+                  style={{ backgroundImage: 'url("/images/ChatGPT Image Jun 29, 2026, 04_41_26 PM.png")' }}
                 >
-                  <div className="absolute -inset-4 bg-gradient-to-r from-pink-200 via-amber-100 to-sky-200 blur-2xl opacity-40 animate-pulse" />
-                  <motion.button
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 1)" }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={startIntro}
-                    className="group relative flex flex-col items-center gap-4 bg-white/95 backdrop-blur-md border border-white/60 px-14 py-6 rounded-full text-stone-800 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.12)] transition-all duration-500 hover:shadow-pink-200/30"
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5, duration: 1 }}
+                    className="relative"
                   >
-                    <span className="font-cinzel text-sm tracking-[0.6em] uppercase font-bold bg-gradient-to-r from-theme-700 to-theme-900 bg-clip-text text-transparent">
-                      View Invitation
-                    </span>
-                    <div className="w-10 h-[1.5px] bg-gradient-to-r from-pink-300 via-amber-300 to-sky-300 group-hover:w-20 transition-all duration-500" />
-                    <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-stone-400 animate-pulse">
-                      Tap to Reveal
-                    </span>
-                  </motion.button>
+                    <div className="absolute -inset-6 bg-gradient-to-r from-theme-400 via-theme-600 to-theme-500 blur-2xl opacity-60 animate-pulse" />
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={startIntro}
+                      className="group relative flex flex-col items-center gap-4 bg-gradient-to-br from-theme-50 via-white to-theme-100 backdrop-blur-md border-2 border-theme-300 px-16 py-8 rounded-full shadow-[0_20px_50px_-10px_rgba(0,0,0,0.3)] shadow-theme-400/40 transition-all duration-500 hover:shadow-theme-500/60"
+                    >
+                      <span className="font-cinzel text-lg md:text-xl tracking-[0.6em] uppercase font-bold bg-gradient-to-r from-theme-700 via-theme-500 to-theme-900 bg-clip-text text-transparent drop-shadow-sm">
+                        View Invitation
+                      </span>
+                      <div className="w-16 h-[2px] bg-gradient-to-r from-theme-400 via-theme-600 to-theme-400 group-hover:w-32 transition-all duration-500" />
+                      <span className="text-[11px] uppercase tracking-[0.5em] font-bold text-theme-600 animate-pulse bg-theme-100 px-4 py-1.5 rounded-full border border-theme-200">
+                        Tap to Reveal
+                      </span>
+                    </motion.button>
+                  </motion.div>
                 </motion.div>
               )}
             </AnimatePresence>
