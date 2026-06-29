@@ -10,7 +10,7 @@ import { Sparkles, MapPin, Calendar, Clock, Volume2, VolumeX } from "lucide-reac
  * Accents: Purple & Gold
  */
 
-const backgroundMusic = "/Ellie Goulding - Love Me Like You Do (Official Instrumental)  Alex MusicX.mp3";
+const backgroundMusic = "/Christina_Perri_-_A_Thousand_years_instrumental_version_(mp3.pm).mp3";
 const flowerImage = "/silver_orchid.png";
 const flowerCornerImage = "/silver_orchid_corner.png";
 const flowerArchImage = "/silver_orchid_arch.png";
@@ -283,6 +283,11 @@ export default function WeddingInvitation() {
   };
 
   const startIntro = () => {
+    if (audioRef.current) {
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch(console.error);
+    }
     if (videoRef.current) {
       videoRef.current.play().catch(console.error);
       setIsVideoPlaying(true);
@@ -399,6 +404,7 @@ export default function WeddingInvitation() {
               <div className="relative w-full h-[35vh] md:h-full group">
                 <video
                   ref={videoRef}
+                  muted
                   playsInline
                   onEnded={openInvitation}
                   className="w-full h-full object-cover shadow-[0_25px_60px_-15px_rgba(0,0,0,0.2)]"
