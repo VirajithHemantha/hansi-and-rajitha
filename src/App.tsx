@@ -783,7 +783,7 @@ export default function WeddingInvitation() {
                           <h4 className="font-cinzel text-xl md:text-3xl text-theme-900 tracking-[0.2em] font-bold drop-shadow-sm px-4 text-center mb-4">REGISTRATION</h4>
                           <div className="flex items-center gap-4">
                             <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-r from-transparent to-theme-300" />
-                            <p className="font-cinzel text-lg md:text-2xl text-theme-700 font-bold tracking-[0.2em]">10.40 am</p>
+                            <p className="font-cinzel text-lg md:text-2xl text-theme-700 font-bold tracking-[0.2em]">11.15 am</p>
                             <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-l from-transparent to-theme-300" />
                           </div>
                         </div>
